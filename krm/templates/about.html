@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Karame Rwanda Ltd - Home</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        .header-bg {
+            background-image: url("{% static 'img/about-img-header.png' %}");
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 800px;
+        }
+
+        /* Additional styles for the hero content */
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+            padding: 150px 20px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            font-weight: bold;
+            line-height: 7.0;
+            margin-bottom: 500px;
+        }
+        
+        /* Let's Work Together Section */
+        .work-together {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #c48f35; /* Similar background color */
+            padding: 40px 50px;
+            margin: 50px 0;
+            color: white;
+        }
+
+        .work-together .text-content {
+            flex: 1;
+            font-size: 22px;
+        }
+
+        .work-together .text-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .work-together .text-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .work-together .cta-button {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .work-together .cta-button button {
+            background-color: #ffcc00;
+            border: none;
+            padding: 15px 30px;
+            color: black;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .work-together .cta-button button:hover {
+            background-color: #ffdd33 
+        }
+
+
+        .work-together .cta-button span {
+            margin-left: 10px;
+            font-size: 20px;
+        }
+
+        .work-together .excavator {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .work-together .excavator img {
+            max-width: 50%;
+            height: 20%;
+        }
+        
+        /* Resize the drum roller machine image */
+        .drum-roller-machine img {
+            width: 300px;  /* Set the width to make the image smaller */
+            height: auto;  /* Maintain the aspect ratio */
+            display: block;
+            margin: 0 auto;  /* Center the image horizontally */
+        }
+        
+        /* About Us Section */
+        .about-us {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .about-us h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .about-us p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        /* People Section Styles */
+        .people-section {
+            text-align: center;
+            margin: 50px 0;
+            background-color: #000;  /* Dark background similar to the screenshot */
+            color: white;
+            padding: 50px 0;
+        }
+
+        .people-section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .person {
+            display: inline-block;
+            text-align: center;
+            margin: 0 15px;
+        }
+
+        .person img {
+            width: 300px;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .person h3 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #f1c40f; /* Yellow color for the name */
+        }
+
+        .person p {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #f1c40f; /* Yellow color for title */
+        }
+
+        .person .more-button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .person .more-button:hover {
+            background-color: #555;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header-bg">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{% static 'img/logo.png' %}" alt="Karame Rwanda Ltd Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">HOME</a></li>
+                <li><a href="{% url 'about' %}">ABOUT</a></li>
+                <li><a href="{% url 'services' %}">SERVICES</a></li>
+                <li><a href="{% url 'projects' %}">PROJECTS</a></li>
+                <li><a href="{% url 'contact' %}">CONTACT</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Building the Future</h1>
+        </div>
+    </header>
+
+    <!-- About Us Section -->
+    <section class="about-us">
+        <h2>About Us</h2>
+        <p>KARAME RWANDA Ltd is a well-established civil engineering and construction company in Rwanda, with over 18 years of experience in delivering practical and innovative solutions to its clients.</p>
+        <p>The expertise of our organization helps to deliver reliable, fast solutions.</p>
+    </section>
+
+    <!-- People Section -->
+    <section class="people-section">
+        <h2>Our Team</h2>
+        <div class="person">
+            <img src="{% static 'img/sadate.png' %}" alt="Sadate">
+            <h3>Sadate</h3>
+            <p>CEO</p>
+            <button class="more-button">More</button>
+        </div>
+    </section>
+    
+    <!-- Let's Work Together Section -->
+    <section class="work-together">
+        <div class="text-content">
+            <h2>Let's Work Together</h2>
+            <p>Contact us today to discuss your consultancy, real estate development, or Project management needs.</p>
+        </div>
+        
+        <div class="drum-roller-machine">
+            <img src="{% static 'img/drum-roller-machine.png' %}" alt="drum-roller-machine">
+        </div>
+        
+        <div class="cta-button">
+            <button>CONTACT US <span>&#8594;</span></button>
+        </div>
+    </section>
+    
+    <!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Company Logo and Name -->
+        <div class="footer-logo">
+            <img src="{% static 'img/logo.png' %}" alt="Karame Rwanda Logo">
+            <p>Karame Rwanda Ltd</p>
+        </div>
+        
+        <!-- Working Hours -->
+        <div class="footer-hours">
+            <p><span>🕒</span> Hours: Mon - Fri: 8am to 5pm</p>
+            <p><span>🕒</span> Hours: Saturday & Sunday Closed</p>
+        </div>
+        
+        <!-- Social Media Links -->
+        <div class="footer-social">
+            <h2>Contact us</h2>
+            <p><a href="#">🌐 Email</a></p>
+            <p><a href="#">📞 xxxxx</a></p>
+            <p><a href="#">📍 KN 76 St</a></p>
+            <p><a href="#">📘 Facebook</a></p>
+            <p><a href="#">📸 Instagram</a></p>
+        </div>
+    </div>
+    
+    <!-- Copyright Information -->
+    <div class="footer-bottom">
+        <p> &copy; 2024 Karame Rwanda Ltd</p>
+    </div>
+</footer>
+
+</body>
+</html>

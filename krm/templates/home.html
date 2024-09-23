@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Karame Rwanda Ltd - Home</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        .header-bg {
+            background-image: url("{% static 'img/bckgrd-img-home-header.png' %}");
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 800px;
+        }
+
+        /* Additional styles for the hero content */
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+            padding: 150px 20px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .hero button {
+            background-color: #ffcc00;
+            border: none;
+            padding: 15px 30px;
+            color: black;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero button:hover {
+            background-color: #ffdd33;
+        }
+
+        .hero button span {
+            margin-left: 10px;
+            font-size: 20px;
+        }
+
+        /* Mission, Vision, and Values Section */
+        .mission-vision-values {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px 0;
+            padding: 0 50px;
+        }
+
+        .mv-box {
+            flex: 1;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            text-align: center;
+            color: black;
+        }
+
+        .mv-box img {
+            height: 50px;
+            margin-bottom: 15px;
+        }
+
+        .mv-box h3 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .mv-box p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Specific background colors for each box */
+        .mission-box {
+            background-color: #f4f4f4;
+        }
+
+        .vision-box {
+            background-color: #fdb913;
+        }
+
+        .values-box {
+            background-color: #2d2d2d;
+            color: white;
+        }
+
+        /* Let's Work Together Section */
+        .work-together {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #c48f35; /* Similar background color */
+            padding: 40px 50px;
+            margin: 50px 0;
+            color: white;
+        }
+
+        .work-together .text-content {
+            flex: 1;
+            font-size: 22px;
+        }
+
+        .work-together .text-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .work-together .text-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .work-together .cta-button {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .work-together .cta-button button {
+            background-color: #ffcc00;
+            border: none;
+            padding: 15px 30px;
+            color: black;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .work-together .cta-button button:hover {
+            background-color: #ffdd33;
+        }
+
+        .work-together .cta-button span {
+            margin-left: 10px;
+            font-size: 20px;
+        }
+
+        .work-together .excavator {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .work-together .excavator img {
+            max-width: 50%;
+            height: 20%;
+        }
+        /* Our Partners Section */
+        .partners {
+            text-align: center;
+            margin: 50px 0;
+        }
+        .partners h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+        .partners-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .partners-logos img {
+            max-width: 150px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        .partners-logos img:hover {
+            transform: scale(1.1);
+        }
+        /* Resize the drum roller machine image */
+        .drum-roller-machine img {
+            width: 300px;  /* Set the width to make the image smaller */
+            height: auto;  /* Maintain the aspect ratio */
+            display: block;
+            margin: 0 auto;  /* Center the image horizontally */
+        }
+        
+
+    </style>
+</head>
+<body>
+    <header class="header-bg">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{% static 'img/logo.png' %}" alt="Karame Rwanda Ltd Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">HOME</a></li>
+                <li><a href="{% url 'about' %}">ABOUT</a></li>
+                <li><a href="{% url 'services' %}">SERVICES</a></li>
+                <li><a href="{% url 'projects' %}">PROJECTS</a></li>
+                <li><a href="{% url 'contact' %}">CONTACT</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Building Visions,<br>Shaping The Future</h1>
+            <p>Your trusted construction partner since 2005</p>
+            <button>
+                LEARN MORE <span>&#8594;</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mission, Vision, and Values Section -->
+    <section class="mission-vision-values">
+        <div class="mv-box mission-box">
+            <img src="{% static 'img/mission-icon.png' %}" alt="Mission Icon">
+            <h3>Mission</h3>
+            <p>To deliver quality infrastructure works that build nations, satisfy customers, and benefit communities.</p>
+        </div>
+        <div class="mv-box vision-box">
+            <img src="{% static 'img/vision-icon.png' %}" alt="Vision Icon">
+            <h3>Vision</h3>
+            <p>To secure leadership position as the company of choice for infrastructure works in Rwanda and beyond.</p>
+        </div>
+        <div class="mv-box values-box">
+            <img src="{% static 'img/values-icon.png' %}" alt="Values Icon">
+            <h3>Values</h3>
+            <p>Results-driven, innovative, committed to quality and leadership, and dedicated to providing community benefits.</p>
+        </div>
+    </section>
+    
+    <!-- Our Partners Section -->
+    <section class="partners">
+        <h2>Our Partners</h2>
+        <div class="partners-logos">
+            <img src="{% static 'img/brand-image-6.png' %}" alt="Government of Rwanda">
+            <img src="{% static 'img/brand-image-5.png' %}" alt="European Union">
+            <img src="{% static 'img/brand-image-4.png' %}" alt="World Bank Group">
+            <img src="{% static 'img/brand-image-3.png' %}" alt="ADB">
+            <img src="{% static 'img/brand-image-2.png' %}" alt="BADEA">
+            
+        </div>
+    </section>
+    <!-- Counter Section -->
+    <section class="counter-section">
+        <div class="counter-box">
+            <span class="counter" data-target="27">0</span>
+            <p>Years of Experience</p>
+        </div>
+        <div class="counter-box">
+            <span class="counter" data-target="180">0</span>
+            <p>Projects Done</p>
+        </div>
+        <div class="counter-box">
+            <span class="counter" data-target="45">0</span>
+            <p>Current Projects</p>
+        </div>
+        <div class="counter-box">
+            <span class="counter" data-target="250">0</span>
+            <p>Satisfied Customers</p>
+        </div>
+    </section>
+
+    <!-- Let's Work Together Section -->
+    <section class="work-together">
+        <div class="text-content">
+            <h2>Let's Work Together</h2>
+            <p>Contact us today to discuss your consultancy, real estate development, or Project management needs.</p>
+        </div>
+        
+        <div class="drum-roller-machine">
+            <img src="{% static 'img/drum-roller-machine.png' %}" alt="drum-roller-machine">
+        </div>
+        
+        <div class="cta-button">
+            <button>CONTACT US <span>&#8594;</span></button>
+        </div>
+    </section>
+    
+    <!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Company Logo and Name -->
+        <div class="footer-logo">
+            <img src="{% static 'img/logo.png' %}" alt="Karame Rwanda Logo">
+            <p>Karame Rwanda Ltd</p>
+        </div>
+        
+        <!-- Working Hours -->
+        <div class="footer-hours">
+            <p><span>🕒</span> Hours: Mon - Fri: 8am to 5pm</p>
+            <p><span>🕒</span> Hours: Saturday & Sunday Closed</p>
+        </div>
+        
+        <!-- Social Media Links -->
+        <div class="footer-social">
+            <h2>Contact us</h2>
+            <p><a href="#">🌐 Email</a></p>
+            <p><a href="#">📞 xxxxx</a></p>
+            <p><a href="#">📍 KN 76 St</a></p>
+            <p><a href="#">📘 Facebook</a></p>
+            <p><a href="#">📸 Instagram</a></p>
+        </div>
+    </div>
+    
+    <!-- Copyright Information -->
+    <div class="footer-bottom">
+        <p> &copy; 2024 Karame Rwanda Ltd</p>
+    </div>
+</footer>
+
+
+</body>
+</html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('.counter');
+        
+        counters.forEach(counter => {
+            counter.innerText = '0';
+            
+            const updateCounter = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / 200; // Adjust the speed here
+                
+                if (count < target) {
+                    counter.innerText = `${Math.ceil(count + increment)}`;
+                    setTimeout(updateCounter, 20); // Adjust the speed here
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            
+            updateCounter();
+        });
+    });
+</script>
